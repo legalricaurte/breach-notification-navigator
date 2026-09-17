@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breach Notification Navigator — Ecuador</title>
+<style>
+:root{--ink:#17212b;--muted:#667085;--bg:#f5f7fb;--card:#fff;--line:#e5e7eb;--accent:#315c72;--accent2:#dcecf2;--danger:#b42318;--warn:#b54708;--ok:#027a48}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:980px;margin:auto;padding:34px 20px 60px}.hero{background:linear-gradient(135deg,#17384a,#315c72);color:#fff;border-radius:24px;padding:34px;margin-bottom:20px}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}.hero h1{font-size:34px;margin:10px 0}.hero p{max-width:720px;line-height:1.6;margin:0;opacity:.9}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;margin:18px 0;box-shadow:0 8px 25px #17212b0b}
+h2{margin-top:0;font-size:21px} h3{font-size:16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+button{width:100%;border:1px solid #d0d5dd;background:#fff;border-radius:15px;padding:18px;text-align:left;cursor:pointer;font-size:15px;color:var(--ink);transition:.15s}
+button:hover{border-color:var(--accent);transform:translateY(-1px)} button strong{display:block;margin-bottom:5px} .primary{background:var(--accent);color:#fff;border-color:var(--accent);text-align:center}
+.hidden{display:none}.tag{display:inline-block;border-radius:999px;background:var(--accent2);color:var(--accent);padding:6px 10px;font-size:12px;font-weight:700}
+.result{border-left:5px solid var(--accent);background:#f8fbfc;padding:18px;border-radius:12px;margin-top:16px}.danger{border-left-color:var(--danger)}.ok{border-left-color:var(--ok)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.day{background:#f8fafc;border:1px solid var(--line);padding:15px;border-radius:14px}.day b{font-size:22px;display:block;color:var(--accent)}
+li{margin:8px 0;line-height:1.45}.small{font-size:13px;color:var(--muted);line-height:1.5}.footer{font-size:12px;color:var(--muted);margin-top:25px}
+@media(max-width:650px){.timeline{grid-template-columns:1fr}.hero h1{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">LegalTech · Ecuador · Protección de datos</div>
+<h1>🚨 Breach Notification Navigator</h1>
+<p>Guía rápida para identificar qué hacer ante una vulneración de seguridad que involucre datos personales.</p>
+</section>
+
+<section class="card" id="start">
+<h2>1. ¿Cuál es tu rol?</h2>
+<div class="grid">
+<button onclick="role('responsable')"><strong>🛡️ Soy RESPONSABLE</strong><span class="small">Determino los fines y medios del tratamiento.</span></button>
+<button onclick="role('encargado')"><strong>⚙️ Soy ENCARGADO</strong><span class="small">Trato datos personales por cuenta del responsable.</span></button>
+</div>
+</section>
+
+<section class="card hidden" id="risk">
+<h2>2. ¿Qué ocurrió?</h2>
+<p class="small">Selecciona la situación que mejor describa el incidente.</p>
+<div class="grid">
+<button onclick="showResult(true)"><strong>⚠️ Puede existir riesgo</strong><span class="small">Destrucción, indisponibilidad, alteración, pérdida de control/acceso o tratamiento/divulgación no autorizado.</span></button>
+<button onclick="showResult(false)"><strong>ℹ️ No identifico riesgo</strong><span class="small">No advierto, con la información disponible, una de las situaciones descritas en el art. 24 RGLOPDP.</span></button>
+</div>
+</section>
+
+<section class="card hidden" id="result"></section>
+
+<section class="card">
+<h2>⏱️ Mapa de plazos</h2>
+<div class="timeline">
+<div class="day"><b>2 días</b>Encargado → Responsable<br><span class="small">Desde que conoce la vulneración.</span></div>
+<div class="day"><b>5 días</b>Responsable → Autoridad / órgano competente / CSIRT<br><span class="small">Desde que tiene constancia.</span></div>
+<div class="day"><b>3 días</b>Responsable → Titular<br><span class="small">Cuando la vulneración implica riesgo para derechos y libertades.</span></div>
+</div>
+</section>
+
+<section class="card">
+<h2>📋 Contenido mínimo de la notificación</h2>
+<ol>
+<li>Naturaleza, tipo y carácter de la vulneración.</li>
+<li>Datos de contacto del responsable y del delegado de protección de datos, cuando corresponda.</li>
+<li>Número aproximado de titulares afectados.</li>
+<li>Descripción de los sistemas, procesos o medios afectados.</li>
+<li>Presunta causa de la vulneración.</li>
+<li>Volumen y tipos de datos personales afectados.</li>
+<li>Medidas adoptadas o propuestas para gestionar la vulneración.</li>
+<li>Evaluación del nivel de riesgo.</li>
+<li>Otros aspectos que determine la Autoridad.</li>
+</ol>
+<p class="small">Base: art. 26 RGLOPDP.</p>
+</section>
+
+<section class="card">
+<h2>⚖️ Consecuencias</h2>
+<p>La LOPDP califica como infracciones graves determinados incumplimientos del deber de notificar. Las sanciones dependen del sujeto infractor y de los criterios establecidos por la ley.</p>
+<p class="small">Base: arts. 68, 70 y 72 LOPDP.</p>
+</section>
+
+<section class="card">
+<h2>📚 Base normativa</h2>
+<ul>
+<li><strong>Art. 43 LOPDP:</strong> deber de notificación y plazos.</li>
+<li><strong>Arts. 24–28 RGLOPDP:</strong> riesgo, finalidad y contenido de las notificaciones.</li>
+<li><strong>Art. 46 LOPDP:</strong> comunicación al titular cuando corresponda.</li>
+<li><strong>Arts. 68, 70 y 72 LOPDP:</strong> infracciones y sanciones.</li>
+<li><strong>Arts. 79–80 LOPDP:</strong> Autoridad de Protección de Datos y competencias.</li>
+</ul>
+</section>
+
+<div class="footer">Herramienta educativa de consulta rápida. No sustituye el análisis jurídico del caso concreto ni la revisión de la normativa vigente.</div>
+</div>
+
+<script>
+let currentRole='';
+function role(r){
+ currentRole=r;
+ document.getElementById('risk').classList.remove('hidden');
+ document.getElementById('risk').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function showResult(risk){
+ const box=document.getElementById('result');
+ box.classList.remove('hidden');
+ if(currentRole==='encargado'){
+   box.className='card result';
+   box.innerHTML='<span class="tag">ENCARGADO</span><h2>Tu obligación inmediata</h2><p><strong>Notifica al RESPONSABLE en un máximo de 2 días</strong> desde que tengas conocimiento de la vulneración.</p><p>La comunicación debe contener la información prevista en el art. 27 RGLOPDP; este artículo establece que se remita la información del art. 26, excepto la evaluación del nivel de riesgo.</p><p class="small">Base: art. 43 LOPDP y art. 27 RGLOPDP.</p>';
+ } else if(risk){
+   box.className='card result';
+   box.innerHTML='<span class="tag">RESPONSABLE</span><h2>Hay un supuesto de riesgo</h2><p><strong>Notifica en un máximo de 5 días</strong> desde que tengas constancia de la vulneración a la Autoridad de Protección de Datos, al órgano regulador o de control competente y al CSIRT correspondiente.</p><p>Además, cuando exista riesgo para los derechos y libertades del titular, corresponde la comunicación al titular en los términos y plazo previstos por la LOPDP.</p><p class="small">Base: arts. 43 y 46 LOPDP y art. 24 RGLOPDP.</p>';
+ } else {
+   box.className='card result ok';
+   box.innerHTML='<span class="tag">REVISIÓN</span><h2>No concluyas todavía</h2><p>Con la información seleccionada no aparece uno de los supuestos de riesgo descritos en el art. 24 RGLOPDP. Documenta el análisis y verifica las circunstancias concretas antes de cerrar el incidente.</p>';
+ }
+ box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
